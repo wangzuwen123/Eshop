@@ -5,6 +5,8 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 
 import com.example.eshop.R;
@@ -24,9 +26,13 @@ public class MainActivity extends AppCompatActivity implements Animator.Animator
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
-        
+
         // 完成视图的操作
         initView();
+
+        // ctrl+alt+v 提取变量
+        Animation animation = AnimationUtils.loadAnimation(this, R.anim.test);
+        mIvSplash.startAnimation(animation);
     }
 
     private void initView() {
