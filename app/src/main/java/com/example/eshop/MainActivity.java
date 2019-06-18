@@ -31,8 +31,7 @@ public class MainActivity extends AppCompatActivity implements Animator.Animator
         initView();
 
         // ctrl+alt+v 提取变量
-        Animation animation = AnimationUtils.loadAnimation(this, R.anim.test);
-        mIvSplash.startAnimation(animation);
+
     }
 
     private void initView() {
