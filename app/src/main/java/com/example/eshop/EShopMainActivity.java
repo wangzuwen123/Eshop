@@ -12,6 +12,7 @@ import android.os.Bundle;
 
 
 import com.example.eshop.base.utils.TestFragment;
+import com.example.eshop.category.CategoryFragment;
 import com.roughike.bottombar.BottomBar;
 import com.roughike.bottombar.OnTabSelectListener;
 
@@ -28,7 +29,7 @@ public class EShopMainActivity extends AppCompatActivity implements OnTabSelectL
     BottomBar mBottomBar;
 
     private TestFragment mHomeFragment;
-    private TestFragment mCategoryFragment;
+    private CategoryFragment mCategoryFragment;
     private TestFragment mCartFragment;
     private TestFragment mMineFragment;
 
@@ -57,7 +58,7 @@ public class EShopMainActivity extends AppCompatActivity implements OnTabSelectL
     private void retrieveFragment() {
         FragmentManager manager = getSupportFragmentManager();
         mHomeFragment = (TestFragment) manager.findFragmentByTag("HomeFragment");
-        mCategoryFragment = (TestFragment) manager.findFragmentByTag("CategoryFragment");
+        mCategoryFragment = (CategoryFragment)  manager.findFragmentByTag(CategoryFragment.class.getName());
         mCartFragment = (TestFragment) manager.findFragmentByTag("CartFragment");
         mMineFragment = (TestFragment) manager.findFragmentByTag("MineFragment");
     }
@@ -90,7 +91,7 @@ public class EShopMainActivity extends AppCompatActivity implements OnTabSelectL
                 break;
             case R.id.tab_category:
                 if (mCategoryFragment == null) {
-                    mCategoryFragment = TestFragment.newInstance("CategoryFragment");
+                    mCategoryFragment = CategoryFragment.newInstance();
                 }
                 switchfragment(mCategoryFragment);
                 break;
@@ -128,7 +129,15 @@ public class EShopMainActivity extends AppCompatActivity implements OnTabSelectL
             transaction.show(target);
         }else {
             // 为了方便找到Fragment，我们是可以设置Tag
-            String tag = ((TestFragment)target).getArgumentText();
+
+            String tag;
+            if (target instanceof TestFragment){
+                tag = ((TestFragment)target).getArgumentText();
+            }else {
+
+                // 把类名作为tag
+                tag = target.getClass().getName();
+            }
 
             // 添加Fragment并设置Tag
             transaction.add(R.id.layout_container,target,tag);

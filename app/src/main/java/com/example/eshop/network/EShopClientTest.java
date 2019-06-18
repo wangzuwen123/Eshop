@@ -6,10 +6,12 @@ package com.example.eshop.network;
 
 
 
+
 import com.example.eshop.network.entity.CategoryRsp;
 import com.google.gson.Gson;
 
-import org.junit.Test;
+
+import org.testng.annotations.Test;
 
 import okhttp3.Call;
 import okhttp3.Response;
@@ -31,8 +33,6 @@ public class EShopClientTest {
         // 断言方法：为我们做一个判断
         assertTrue(categoryRsp.getStatus().isSucceed());
     }
-
-
 
 
 }
