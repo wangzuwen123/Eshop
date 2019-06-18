@@ -1,10 +1,6 @@
 package com.example.eshop;
 
-import android.app.Activity;
 
-
-import android.os.AsyncTask;
-import android.os.SystemClock;
 import android.support.annotation.IdRes;
 
 
@@ -13,22 +9,19 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.View;
-import android.widget.Toast;
 
-import com.example.eshop.R;
+
 import com.example.eshop.base.utils.TestFragment;
 import com.roughike.bottombar.BottomBar;
 import com.roughike.bottombar.OnTabSelectListener;
 
-import java.lang.ref.WeakReference;
+
 
 
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.OnClick;
+
 
 public class EShopMainActivity extends AppCompatActivity implements OnTabSelectListener {
     @BindView(R.id.bottom_bar)

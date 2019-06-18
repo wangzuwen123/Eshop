@@ -1,10 +1,7 @@
 package com.example.eshop.base.utils;
 
-
-
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,11 +14,13 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
- * Created by Administrator on 2019/6/18/018.
+ * Created by gqq on 2017/2/22.
  */
 
 public class TestFragment extends Fragment {
+
     private static final String FRAGMENT_TEXT = "fragment_text";
+
     @BindView(R.id.text)
     TextView mTextView;
 

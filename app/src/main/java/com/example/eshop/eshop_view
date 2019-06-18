@@ -10,7 +10,7 @@
         releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5'
         testCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5'
 
-     2. 创建Application，要在清单文件里面指定，并且实现LeakCanary的初始化
+    2. 创建Application，要在清单文件里面指定，并且实现LeakCanary的初始化
 
          if (LeakCanary.isInAnalyzerProcess(this)) {
 
@@ -18,12 +18,9 @@
                     return;
                 }
                 LeakCanary.install(this);
+                // 正常的app初始化
 
-
-
-                 // 正常的app初始化
-
-                  20170221：
+                 20170221：
                  总结：
                  1. AS Git
                  2. Butterknife
@@ -31,15 +28,26 @@
                  4. 内存泄漏监测工具的添加
                  5. 实现了Spalsh(飞溅)页面的效果：图片设置透明度的动画，跳转页面设置转场效果
                  任务：实现Spalsh页面。
+
+
+
                  明天：主页面搭建：第三方的控件
-
-
-                  20170222:
+                 20170222:
                  主页面：
                  1. 底部导航栏：BottomBar（底栏）
                      1. 添加依赖：compile 'com.roughike:bottom-bar:2.1.1'
                      2. 创建一个xml的文件：res/xml/bottom_bar.xml
                      3. 布局中使用
                      4. 在代码里面设置监听事件
+
+                 2. Fragment 切换
+                 总结：
+                     1. 反馈的问题解答：动画、内存泄漏
+                     2. 主页面：BottomBar，Fragment的切换
+                     3. 消息的结构。
+                 任务：主页面一定要完成
+
+
+                 明天：网络：OkHttp
 
 
