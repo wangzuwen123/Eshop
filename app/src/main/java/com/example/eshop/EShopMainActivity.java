@@ -9,6 +9,7 @@ import android.support.annotation.IdRes;
 
 
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -51,10 +52,35 @@ public class EShopMainActivity extends AppCompatActivity implements OnTabSelectL
 
     // 视图的初始化操作
     private void initView() {
+        // 可以看一下Fragmentmanager里面是不是已经有了这些Fragment
+        retrieveFragment();
 
         //alt + enter
         // 设置导航选择的监听事件
         mBottomBar.setOnTabSelectListener(this);
+    }
+
+    // 恢复因为系统重启造成的Fragmentmanager里面恢复的Fragment
+    private void retrieveFragment() {
+        FragmentManager manager = getSupportFragmentManager();
+        mHomeFragment = (TestFragment) manager.findFragmentByTag("HomeFragment");
+        mCategoryFragment = (TestFragment) manager.findFragmentByTag("CategoryFragment");
+        mCartFragment = (TestFragment) manager.findFragmentByTag("CartFragment");
+        mMineFragment = (TestFragment) manager.findFragmentByTag("MineFragment");
+    }
+
+    // 处理返回键
+    @Override
+    public void onBackPressed() {
+        if (mCurrentFragment!=mHomeFragment){
+
+            // 如果不是在首页，就切换首页上
+            mBottomBar.selectTabWithId(R.id.tab_home);
+            return;
+        }
+        // 是首页，我们不去关闭，退到后台运行
+        moveTaskToBack(true);
+
     }
 
     //底部导航栏某一项选择的时候触发
